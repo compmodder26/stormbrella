@@ -14,7 +14,7 @@
 //   NEO_GRB     Pixels are wired for GRB bitstream (most NeoPixel products)
 //   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
 //   NEO_RGBW    Pixels are wired for RGBW bitstream (NeoPixel RGBW products)
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(4, LEDPIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(8, LEDPIN, NEO_GRB + NEO_KHZ800);
 
 int buttonState = 0;
 
@@ -30,9 +30,9 @@ void setup() {
   digitalWrite(TRIGGER, LOW);
   
   // This is for Trinket 5V 16MHz, you can remove these three lines if you are not using a Trinket
-  #if defined (__AVR_ATtiny85__)
-    if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
-  #endif
+  //#if defined (__AVR_ATtiny85__)
+  //  if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
+  //#endif
   // End of trinket special code
 
 
@@ -69,12 +69,20 @@ void lightningFlashFull() {
   light(1);
   light(2);
   light(3);
+  light(4);
+  light(5);
+  light(6);
+  light(7);
   strip.show();
   delay(400);
   off(0);
   off(1);
   off(2);
   off(3);
+  off(4);
+  off(5);
+  off(6);
+  off(7);
   strip.show();
   delay(150);
 
@@ -83,12 +91,20 @@ void lightningFlashFull() {
   light(1);
   light(2);
   light(3);
+  light(4);
+  light(5);
+  light(6);
+  light(7);
   strip.show();
   delay(150);
   off(0);
   off(1);
   off(2);
   off(3);
+  off(4);
+  off(5);
+  off(6);
+  off(7);
   strip.show();
 }
 
@@ -96,40 +112,61 @@ void lightningFlashLeftRight() {
   // first flash
   light(0);
   light(1);
-  off(2);
-  off(3);
+  light(2);
+  light(3);
+  off(4);
+  off(5);
+  off(6);
+  off(7);
   strip.show();
   delay(400);
   off(0);
   off(1);
-  light(2);
-  light(3);
+  off(2);
+  off(3);
+  light(4);
+  light(5);
+  light(6);
+  light(7);
   strip.show();
   delay(150);
 
   // second flash
   light(0);
   light(1);
-  off(2);
-  off(3);
+  light(2);
+  light(3);
+  off(4);
+  off(5);
+  off(6);
+  off(7);
   strip.show();
   delay(350);
   off(0);
   off(1);
-  light(2);
-  light(3);
+  off(2);
+  off(3);
+  light(4);
+  light(5);
+  light(6);
+  light(7);
   strip.show();
   delay(300);
 
   // third flash
   light(0);
   light(1);
-  off(2);
-  off(3);
+  light(2);
+  light(3);
+  off(4);
+  off(5);
+  off(6);
+  off(7);
   strip.show();
   delay(150);
   off(0);
   off(1);
+  off(2);
+  off(3);
   strip.show();
 }
-
